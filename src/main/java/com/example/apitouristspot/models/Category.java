@@ -12,27 +12,29 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import com.sun.istack.NotNull;
 
 @Entity
-@Table(name= "TB_CATEGORY")
+@Table(name = "TB_CATEGORY")
 public class Category implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "ID_CATEGORY")
+	@SequenceGenerator(name = "TB_CATEGORY_ID_CATEGORY_SEQ", sequenceName = "TB_CATEGORY_ID_CATEGORY_SEQ", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "TB_CATEGORY_ID_CATEGORY_SEQ")
+	@Column(name = "ID_CATEGORY", updatable = false)
 	private Long id;
-	
+
 	@NotNull
 	@Column(name = "NAME_CATEGORY")
 	private String name;
-	
+
 	@OneToMany(mappedBy = "category", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<TouristSpot> touristSpots = new ArrayList<>();
+	private List<TouristSpot> touristSpots = new ArrayList<>();
 
 	public Long getId() {
 		return id;
@@ -57,7 +59,5 @@ public class Category implements Serializable {
 	public void setTouristSpots(List<TouristSpot> touristSpots) {
 		this.touristSpots = touristSpots;
 	}
-	
-	
 
 }

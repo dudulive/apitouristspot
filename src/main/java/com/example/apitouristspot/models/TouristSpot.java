@@ -14,6 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import com.sun.istack.NotNull;
@@ -25,7 +26,8 @@ public class TouristSpot implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@SequenceGenerator(name = "TB_TOURIST_SPOT_SEQ", sequenceName = "TB_TOURIST_SPOT_ID_TOURIST_SPOT_SEQ", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "TB_TOURIST_SPOT_ID_TOURIST_SPOT_SEQ")
 	@Column(name = "ID_TOURIST_SPOT")
 	private Long id;
 	
