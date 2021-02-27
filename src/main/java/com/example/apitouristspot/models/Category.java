@@ -1,17 +1,12 @@
 package com.example.apitouristspot.models;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -33,9 +28,6 @@ public class Category implements Serializable {
 	@Column(name = "NAME_CATEGORY")
 	private String name;
 
-	@OneToMany(mappedBy = "category", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	private List<TouristSpot> touristSpots = new ArrayList<>();
-
 	public Long getId() {
 		return id;
 	}
@@ -50,14 +42,6 @@ public class Category implements Serializable {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public List<TouristSpot> getTouristSpots() {
-		return touristSpots;
-	}
-
-	public void setTouristSpots(List<TouristSpot> touristSpots) {
-		this.touristSpots = touristSpots;
 	}
 
 }

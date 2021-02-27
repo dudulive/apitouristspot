@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -22,11 +23,12 @@ public class Picture implements Serializable {
 
 	@Id
 	@SequenceGenerator(name = "TB_PICTURE_SEQ", sequenceName = "TB_PICTURE_ID_PICTURE_SEQ", allocationSize = 1)
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "TB_CATEGORY_ID_PICTURE_SEQ")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "TB_PICTURE_ID_PICTURE_SEQ")
 	@Column(name = "ID_PICTURE", updatable = false)
 	private Long id;
 	
 	@NotNull
+	@Lob
 	@Column(name = "VALUE_PICTURE")
 	private String value;
 	
