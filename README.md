@@ -23,16 +23,18 @@ RESTful API of tourist spots
 * Criar novas categorias.
   
 ## Configuração para Desenvolvimento  
+#### Pré-requisitos
+* Para seguir este guia, é necessário ter instalado em sua máquina:
+* Java JDK 8 ou superior
+* Vscode
+* PostgreSQL
+#### Instalar extensões de suporte ao Java
+* Java Extension Pack
+* Spring Boot Extension Pack
+#### Executando o projeto
+
   
-No domínio do Weblogic onde a aplicação será publicada, deverá ser configurado um pool de conexões que estará disponível no nome JNDI  
-```sh  
-url: jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=exa01-scan6.intra.goias.gov.br)(PORT=1521))(CONNECT_DATA=(SERVER=SHARED)(SERVICE_NAME=orades)))  
-JNDI: jdbc/aeo  
-Usuário: “AGOUSER”  
-Password: "AGO6ti5#D"
-```  
-## Publicações no Big-IP
-#### Autenticação via porta:
+## Publicações
 * Local: http://localhost:8080/swagger-ui.html#/
 * Desenvolvimento: http://localhost:8080/swagger-ui.html#/
 * Homologação: https://apitouristspot.herokuapp.com/swagger-ui.html
