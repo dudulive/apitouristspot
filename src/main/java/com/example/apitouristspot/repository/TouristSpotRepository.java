@@ -13,3 +13,5 @@ public interface TouristSpotRepository extends JpaRepository<TouristSpot, Long> 
 	List<TouristSpot> findByName(String name);
 
 }
+
+

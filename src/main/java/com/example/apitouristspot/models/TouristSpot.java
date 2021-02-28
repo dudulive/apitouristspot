@@ -46,9 +46,7 @@ public class TouristSpot implements Serializable {
 	@ManyToOne
     @JoinColumn(name = "ID_CATEGORY")
 	private Category category;
-	
-	@OneToMany(mappedBy = "touristSpot", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<Picture> pictures = new ArrayList<>();
+
 
 	public Long getId() {
 		return id;
@@ -89,13 +87,4 @@ public class TouristSpot implements Serializable {
 	public void setCategory(Category category) {
 		this.category = category;
 	}
-
-	public List<Picture> getPictures() {
-		return pictures;
-	}
-
-	public void setPictures(List<Picture> pictures) {
-		this.pictures = pictures;
-	}
-	
 }
