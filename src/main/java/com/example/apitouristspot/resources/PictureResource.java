@@ -1,6 +1,7 @@
 package com.example.apitouristspot.resources;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,5 +20,10 @@ public class PictureResource {
 	@PostMapping(value = "")
 	public Picture save(@RequestBody Picture picture) {
 		return pictureRepository.save(picture);
+	}
+	
+	@DeleteMapping(value = "")
+	public void delete(@RequestBody Picture picture) {
+		pictureRepository.delete(picture);
 	}
 }
