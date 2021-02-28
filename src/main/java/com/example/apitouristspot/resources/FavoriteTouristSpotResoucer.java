@@ -11,6 +11,7 @@ import com.example.apitouristspot.repository.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -34,7 +35,7 @@ public class FavoriteTouristSpotResoucer {
     private FavoriteTouristSpotRespository favoriteTouristSpotRespository;
 
     @PostMapping(value = "")
-    @ApiOperation(value = "favorito um ponto turístico.")
+    @ApiOperation(value = "Favorito um ponto turístico.")
     public FavoriteTouristSpot save(@RequestBody FavoriteTouristSpot favoriteTouristSpot) {
         Optional<User> user = userRepository.findById(favoriteTouristSpot.getUser().getId());
         Optional<TouristSpot> touristSpot = touristSpotRepository.findById(favoriteTouristSpot.getTouristSpot().getId());
@@ -47,6 +48,12 @@ public class FavoriteTouristSpotResoucer {
 	@ApiOperation(value = "Veja meus pontos turísticos favoritos.")
 	public FavoriteTouristSpot findById(@RequestParam(value = "email") String email){
 		return favoriteTouristSpotRespository.findByUserName(email);
+	}
+
+    @DeleteMapping(value = "")
+	@ApiOperation(value = "Remover um ponto turístico de meus favoritos.")
+	public void delete(@RequestBody FavoriteTouristSpot favoriteTouristSpot) {
+		favoriteTouristSpotRespository.delete(favoriteTouristSpot);
 	}
     
 }
