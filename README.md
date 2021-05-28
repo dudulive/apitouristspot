@@ -45,7 +45,7 @@ RESTful API of tourist spots
 * Caminhos para escrita de arquivos
 
 #### Essa ideia de environment já é bem suportada pelo Spring e o Spring Boot tira apenas proveito. Na hora que você passe o argumento -Dspring.profiles.active atribuindo o valor de ambiente que você quer.
-* java -Dspring.profiles.active=production -jar webapp-runner.jar tudosobreesporte-1.0.0-SNAPSHOT.war& 
+* java -Dspring.profiles.active=production -jar webapp-runner.jar apitouristspot-1.0.0-SNAPSHOT.war& 
 * Acima você está ensinando ao Spring Boot a procurar por um arquivo chamado application-production.properties.
   
 ## Publicações
